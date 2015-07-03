@@ -1,0 +1,51 @@
+class Caminante {
+  float x;
+  float y;
+  float vel=1;
+  color col=color(0);
+
+  Caminante() {
+    x=0.5*width;
+    y=0.5*height;
+  }
+
+  Caminante(float x_, float y_, float vel_) {
+    x=x_;
+    y=y_;
+    vel=vel_;
+    col = color(0);
+  }
+
+  void arriba() {
+    y=y-vel;
+  }
+  void abajo() {
+    y=y+vel;
+  }
+  void derecha() {
+    x=x+vel;
+  }
+  void izquierda() {
+    x=x-vel;
+  }
+
+  void mover() {
+    float p=random(0, 1);
+    if (p<0.1) {
+      arriba();
+    } else if (p<0.5) {
+      abajo();
+    } else if (p<0.75) {
+      derecha();
+    } else {
+      izquierda();
+    }
+  }
+
+  void dibujar() {
+    //  println(p);
+    noStroke();
+    fill(col);
+    ellipse(x, y, 1, 1);
+  }
+}
